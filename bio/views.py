@@ -1,13 +1,10 @@
-from django.shortcuts import render
-
 # Create your views here.
 
 
-from django.http import JsonResponse
+from django.core.files.base import ContentFile
+from django.core.files.storage import default_storage
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from django.core.files.storage import default_storage
-from django.core.files.base import ContentFile
 
 
 def IGORMAGIC(file):
@@ -20,7 +17,7 @@ def saveFile(file):
     return path
 
 
-class ArticleView(APIView):
+class MainView(APIView):
     def post(self, request):
         file = request.FILES['photo']
         pathes = IGORMAGIC(file)
