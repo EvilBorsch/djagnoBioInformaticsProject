@@ -7,12 +7,23 @@
 </head>
 <body>
     <link rel="stylesheet" href="main.css">
+
+    <div class="choseFile">
+        <form enctype="multipart/form-data" id="form">
+            <input type="file" id="inp">
+            <input type="submit" id="submit" text="but2">
+        </form>
+        <select name="select1" required>
+            <option> ELEMENT1</option>
+            >
+            <option> ELEMENT2</option>
+            >
+        </select>
+        <p hidden="hidden">Process completed</p>
+    </div>
+
     <div id="app"></div>
 
-    <form enctype="multipart/form-data" id="form">
-        <input type="file" id="inp" >
-        <input type="submit" id="submit" text="but2" >
-    </form>
     <script src="igor.js"></script>
 </body>
 </html>

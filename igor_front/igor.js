@@ -36,20 +36,25 @@ async function ajaxForm(route, method, formData, callback) {
 }
 
 function createImageField(textAddition,imageSrc) {
-    let textAdditionElement = document.createElement("b")
-    textAdditionElement.className="textAddition"
-    textAdditionElement.textContent=textAddition
-    let imageField = document.createElement("img")
-    imageField.src = imageSrc
-    imageField.className = "readyImages"
-    app.appendChild(imageField)
-    app.appendChild(textAdditionElement)
+    let itemDiv=document.createElement("div")
+    itemDiv.className="item"
+
+    itemDiv.innerHTML=`<figure>
+                    <img src="${imageSrc}" class="readyImages"
+                        alt="">
+                    <figcaption> <b class="textAddition"> ${textAddition} </b> </figcaption>
+            </figure>`
+    return itemDiv
 }
 
 function appendImages(images) {
+    let containerImage=document.createElement("div")
+    containerImage.className="containerImage"
     for (var textAddition in images) {
-        createImageField(textAddition, images[textAddition])
+        let itemDiv=createImageField(textAddition, images[textAddition])
+        containerImage.appendChild(itemDiv)
     }
+    app.appendChild(containerImage)
 }
 
 
